@@ -4,6 +4,8 @@
 name: Publish
 
 on:
+  workflow_dispatch:
+  
   push:
     branches: [ master ]
 
@@ -11,12 +13,17 @@ jobs:
   publish-coding:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: node-v12
+        uses: actions/setup-node@v1
         with:
           node-version: '12'
-      - run: npm install
-      - run: npm run deploy
+      - name: deploy
         env:
           GH_PAGES_REPO: 'https:${{secrets.CODING_USER}}@e.coding.net/sjfkai/geocoding/geocoding.git'
           GH_PAGES_BRANCH: master
+        run: |
+          npm install
+          npm run deploy
+        
