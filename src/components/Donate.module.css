@@ -1,0 +1,20 @@
+.donate {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+.donate-content {
+  /* height: 200px; */
+  width: 700px;
+  text-align: center;
+}
+
+.donate-content img {
+  width: 80%;
+  height: 80%;
+}
+
+.new-year {
+  color: red;
+}

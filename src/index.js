@@ -1,13 +1,20 @@
+import './polyfill'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import Geocoding from './pages/Geocoding';
+import Reverse from './pages/Reverse';
 import * as serviceWorker from './serviceWorker';
 
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <Reverse />
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Reverse />,
   document.getElementById('root')
 );
 

@@ -1,0 +1,11 @@
+.result-table {
+
+}
+
+.buttons {
+  margin-bottom: 10px;
+}
+
+.buttons > * {
+  margin-right: 10px;
+}
