@@ -19,6 +19,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12'
+      - name: set-git-config
+        run: |
+          git config user.email "sjfkai@163.com"
+          git config user.name "sjfkai"
       - name: deploy
         env:
           GH_PAGES_REPO: 'https://${{secrets.CODING_USER}}@e.coding.net/sjfkai/geocoding/geocoding.git'
