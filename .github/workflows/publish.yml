@@ -21,7 +21,7 @@ jobs:
           node-version: '12'
       - name: deploy
         env:
-          GH_PAGES_REPO: 'https:${{secrets.CODING_USER}}@e.coding.net/sjfkai/geocoding/geocoding.git'
+          GH_PAGES_REPO: 'https://${{secrets.CODING_USER}}@e.coding.net/sjfkai/geocoding/geocoding.git'
           GH_PAGES_BRANCH: master
         run: |
           npm install
