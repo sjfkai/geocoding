@@ -1,4 +1,5 @@
 import { sleep, jsonpPromise } from '../utils'
+import { captureException } from '@sentry/react';
 
 function getFromStorage(key) {
   const cache = localStorage.getItem(key)
@@ -35,13 +36,22 @@ export async function getBaiduLocation({ geoCode, coordtype }) {
   // 为了不超qps限制，手动增加间隔
   await sleep(500)
   const url = `https://api.map.baidu.com/reverse_geocoding/v3/?ak=${window.baiduApiKey}&output=json&coordtype=${coordtype}&location=${geoCode}&extensions_poi=1`
-
-  const res = await jsonpPromise(url, {
-    param: 'callback',
-    prefix: 'showLocation',
-  })
-
-  console.log(res)
+  let res
+  try {
+    res = await jsonpPromise(url, {
+      param: 'callback',
+      prefix: 'showLocation',
+      timeout: 10000,
+    })
+  } catch (error) {
+    captureException(error)
+    return {
+      geoCode,
+      isError: true,
+      message: error.msg,
+      status: 1000,
+    }
+  }
 
   if (res.status !== 0) {
     return {

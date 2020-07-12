@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import ReverseForm from '../components/ReverseForm';
 import ResultTable from '../components/ResultTable';
 import useReverseGeocoding from '../hooks/useReverseGeocoding'
@@ -38,6 +39,7 @@ export default function Reverse() {
           />
         </div>
       </div>
+      <Footer />
       <Donate />
     </div>
   )
