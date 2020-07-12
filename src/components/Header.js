@@ -14,7 +14,7 @@ export default function Header() {
         </Menu.Item>
         <Menu.Item key="geocoding">
           <a href="https://maplocation.sjfkai.com" target="_blank" rel="noopener noreferrer">
-            地理转经纬度
+            地址转经纬度
           </a>
         </Menu.Item>
       </Menu>
