@@ -35,7 +35,7 @@ const ReverseForm = ({ onCommit, isWorking }) => {
         rules={[
           { required: true, message:'经纬度不能为空' },
           {
-            pattern: /^(-?\d+(\.\d*)?,\d+(\.\d*)?(\r\n|\r|\n)?)+$/g,
+            pattern: /^(-?\d+(\.\d*)?,-?\d+(\.\d*)?(\r\n|\r|\n)?)+$/g,
             message: '格式有误，检查格式',
           }
         ]}>
